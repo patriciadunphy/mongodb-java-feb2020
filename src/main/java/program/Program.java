@@ -4,8 +4,9 @@ import db.MongoDb;
 import ui.InputInstructions;
 
 public class Program {
+    MongoDb db = new MongoDb();
+
     public void createAuthor() {
-        MongoDb db = new MongoDb();
         InputHandler inp = new InputHandler();
         InputInstructions instr = new InputInstructions();
 
@@ -19,14 +20,11 @@ public class Program {
         String isbn = inp.getStringInput();
         instr.typeYear();
         int year = inp.getIntInput();
-
-        db.createAuthor(firstName, lastName, title, isbn, year);
+        db.insertAuthor(firstName, lastName, title, isbn, year);
     }
     public void addBooksToAuthor() {
-        MongoDb db = new MongoDb();
         InputHandler inp = new InputHandler();
         InputInstructions instr = new InputInstructions();
-
         instr.typeAuthorLastName();
         String lastName = inp.getStringInput();
         instr.typeBookTitle();
@@ -40,7 +38,6 @@ public class Program {
 
     }
     public void searchAuthor() {
-        MongoDb db = new MongoDb();
         InputHandler inp = new InputHandler();
         InputInstructions instr = new InputInstructions();
 
@@ -48,7 +45,6 @@ public class Program {
         String firstName = inp.getStringInput();
         instr.typeAuthorLastName();
         String lastName = inp.getStringInput();
-
-        db.searchAuthor(firstName, lastName);
+        db.findAuthor(firstName, lastName);
     }
 }
