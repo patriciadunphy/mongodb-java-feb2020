@@ -4,6 +4,7 @@ public class InputInstructions {
     public void typeAuthorFirstName() {
         System.out.println("Ange författarens förnamn: ");
     }
+
     public void typeAuthorLastName() {
         System.out.println("Ange författarens efternamn");
     }
